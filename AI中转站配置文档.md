@@ -12,7 +12,7 @@
 ```
 服务商: kkyyxx.xyz
 API端点: https://api.kkyyxx.xyz
-API密钥: sk-nZMgqcGpdOrSRMZRTmQ4LjU1rTm3LEnPROtTpBltYmmk2WTM
+API密钥: sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 默认模型: gemini-2.0-flash
 状态: ✅ 已配置并正常工作
 ```
@@ -21,7 +21,7 @@ API密钥: sk-nZMgqcGpdOrSRMZRTmQ4LjU1rTm3LEnPROtTpBltYmmk2WTM
 ```
 服务商: anglergap.org
 API端点: https://api.anglergap.org
-API密钥: sk-2iMT6oOlWcl2YLPR5HCas3nOuIvaTDbv72xq4TxNByO8ks7K
+API密钥: sk-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 默认模型: claude-3-5-haiku-20241022
 状态: ✅ 已配置并正常工作
 ```
@@ -30,7 +30,7 @@ API密钥: sk-2iMT6oOlWcl2YLPR5HCas3nOuIvaTDbv72xq4TxNByO8ks7K
 ```
 服务商: nlvps.hidns.co
 API端点: https://api.nlvps.hidns.co/
-API密钥: sk-eR6fewKOX1bQI4n8P5mgkRtamegYZR5svgn3beDJvDQwTRDl
+API密钥: sk-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 默认模型: gpt-4o-mini
 模型数量: 67个模型
 状态: ✅ 已配置并正常工作
@@ -294,23 +294,23 @@ API密钥: sk-eR6fewKOX1bQI4n8P5mgkRtamegYZR5svgn3beDJvDQwTRDl
 
 ### 生产环境变量:
 ```
-CLAUDE_API_KEY = sk-nZMgqcGpdOrSRMZRTmQ4LjU1rTm3LEnPROtTpBltYmmk2WTM
+CLAUDE_API_KEY = sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 CLAUDE_BASE_URL = https://api.kkyyxx.xyz
 CLAUDE_MODEL = gemini-2.0-flash
-CLAUDE_API_KEY_BACKUP = sk-2iMT6oOlWcl2YLPR5HCas3nOuIvaTDbv72xq4TxNByO8ks7K
+CLAUDE_API_KEY_BACKUP = sk-yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 CLAUDE_BASE_URL_BACKUP = https://api.anglergap.org
 CLAUDE_MODEL_BACKUP = claude-3-5-haiku-20241022
-CLAUDE_API_KEY_THIRD = sk-eR6fewKOX1bQI4n8P5mgkRtamegYZR5svgn3beDJvDQwTRDl
+CLAUDE_API_KEY_THIRD = sk-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 CLAUDE_BASE_URL_THIRD = https://api.nlvps.hidns.co/
 CLAUDE_MODEL_THIRD = gpt-4o-mini
-SECRET_KEY = ai-translator-secret-key-2024
+SECRET_KEY = your-secret-key-here
 ```
 
 ## 📊 性能监控
 
 ### API健康检查端点:
 - **URL**: https://ai-translator-97n.pages.dev/api/health
-- **返回信息**: 
+- **返回信息**:
   - 系统状态
   - 当前模型
   - 中转站配置状态
@@ -319,7 +319,7 @@ SECRET_KEY = ai-translator-secret-key-2024
 ### 翻译API端点:
 - **URL**: https://ai-translator-97n.pages.dev/api/translate
 - **方法**: POST
-- **参数**: 
+- **参数**:
   - `text`: 要翻译的文本
   - `targetLanguage`: 目标语言
   - `sourceLanguage`: 源语言（可选，支持自动检测）
