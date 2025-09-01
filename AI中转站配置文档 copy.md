@@ -9,29 +9,20 @@
 ## 🔧 当前中转站配置
 
 ### 主要中转站 (Primary Station)
-```
-服务商: kkyyxx.xyz
-API端点: https://api.kkyyxx.xyz
-API密钥: sk-nZMgqcGpdOrSRMZRTmQ4LjU1rTm3LEnPROtTpBltYmmk2WTM
+
 默认模型: gemini-2.0-flash
 状态: ✅ 已配置并正常工作
 ```
 
 ### 备用中转站 (Backup Station)
 ```
-服务商: anglergap.org
-API端点: https://api.anglergap.org
-API密钥: sk-2iMT6oOlWcl2YLPR5HCas3nOuIvaTDbv72xq4TxNByO8ks7K
-默认模型: claude-3-5-haiku-20241022
+
 状态: ✅ 已配置并正常工作
 ```
 
 ### 第三中转站 (Third Station)
 ```
-服务商: nlvps.hidns.co
-API端点: https://api.nlvps.hidns.co/v1/
-API密钥: sk-eR6fewKOX1bQI4n8P5mgkRtamegYZR5svgn3beDJvDQwTRDl
-模型数量: 65个模型
+
 状态: 🆕 新增中转站
 ```
 
