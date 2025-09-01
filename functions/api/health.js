@@ -8,6 +8,12 @@ export async function onRequestGet(context) {
   // 检查主要中转站配置
   const hasPrimaryConfig = !!(env.CLAUDE_API_KEY && env.CLAUDE_BASE_URL);
 
+  // 检查备用中转站配置
+  const hasBackupConfig = !!(env.CLAUDE_API_KEY_BACKUP && env.CLAUDE_BASE_URL_BACKUP);
+
+  // 检查第三中转站配置
+  const hasThirdConfig = !!(env.CLAUDE_API_KEY_THIRD && env.CLAUDE_BASE_URL_THIRD);
+
 
 
   // 当前使用的模型
