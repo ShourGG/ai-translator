@@ -1,0 +1,43 @@
+name = "ai-translator"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+# 🔧 老王添加：KV存储绑定，用于永久存储管理员配置
+[[kv_namespaces]]
+binding = "ADMIN_CONFIG_KV"
+id = "2305c1b9fa91438fbad8aaf3f0e64ce7"
+
+# 🔥 老王新增：翻译缓存KV存储，提高翻译一致性
+[[kv_namespaces]]
+binding = "TRANSLATION_CACHE"
+id = "2dba58298ace4f3dbc652a3efd1d838d"
+
+[env.production]
+name = "ai-translator-prod"
+# 环境变量配置 - 移动到production环境下
+[env.production.vars]
+FLASK_ENV = "production"
+NODE_VERSION = "18"
+
+# 🔧 老王修复：production环境的KV配置
+[[env.production.kv_namespaces]]
+binding = "ADMIN_CONFIG_KV"
+id = "2305c1b9fa91438fbad8aaf3f0e64ce7"
+
+# 🔥 老王新增：production环境翻译缓存
+[[env.production.kv_namespaces]]
+binding = "TRANSLATION_CACHE"
+id = "2dba58298ace4f3dbc652a3efd1d838d"
+
+[env.preview]
+name = "ai-translator-preview"
+[env.preview.vars]
+FLASK_ENV = "development"
+NODE_VERSION = "18"
+
+# 敏感信息通过 wrangler pages secret 命令设置
+# wrangler pages secret put CLAUDE_API_KEY
+# wrangler pages secret put CLAUDE_BASE_URL
+# wrangler pages secret put SECRET_KEY
+# wrangler pages secret put OPENAI_API_KEY

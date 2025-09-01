@@ -1,0 +1,35 @@
+# 老王的Prettier忽略配置 - 这些文件别格式化了
+
+# 依赖和构建产物
+node_modules/
+dist/
+build/
+coverage/
+
+# 配置文件
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+.tmp/
+.cache/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE文件
+.vscode/
+.idea/
+
+# 已经压缩的文件
+*.min.js
+*.min.css
+
+# Markdown文件保持原格式
+*.md

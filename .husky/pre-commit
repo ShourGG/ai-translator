@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 老王的Git提交前检查 - 不允许垃圾代码提交！
+echo "🔍 老王检查代码质量中..."
+
+# 检查代码格式和质量
+npm run code:check
+
+if [ $? -ne 0 ]; then
+  echo "❌ 艹！代码有问题，老王不允许提交垃圾代码！"
+  echo "💡 运行 'npm run code:fix' 修复问题后再提交"
+  exit 1
+fi
+
+echo "✅ 代码质量检查通过，老王允许提交！"

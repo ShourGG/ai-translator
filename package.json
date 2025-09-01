@@ -1,0 +1,46 @@
+{
+  "name": "ai-translator-cf",
+  "version": "1.0.0",
+  "description": "AI翻译器 - Cloudflare Workers 部署",
+  "type": "module",
+  "main": "src/index.py",
+  "scripts": {
+    "build": "echo 'Build completed'",
+    "dev": "wrangler pages dev dist --compatibility-date=2024-01-01",
+    "deploy": "wrangler pages deploy dist",
+    "deploy:staging": "wrangler pages deploy dist --env staging",
+    "deploy:production": "wrangler pages deploy dist --env production",
+    "tail": "wrangler pages deployment tail",
+    "setup-secrets": "node setup-secrets.js",
+    "create-project": "wrangler pages project create ai-translator",
+    "lint": "eslint . --ext .js,.mjs",
+    "lint:fix": "eslint . --ext .js,.mjs --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "code:check": "npm run lint && npm run format:check",
+    "code:fix": "npm run lint:fix && npm run format",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "ai",
+    "translator",
+    "cloudflare",
+    "workers",
+    "flask",
+    "python"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

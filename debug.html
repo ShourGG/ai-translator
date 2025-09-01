@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI翻译器调试页面</title>
+  </head>
+  <body>
+    <h1>AI翻译器调试测试</h1>
+    <div id="status"></div>
+    <pre id="output"></pre>
+
+    <script>
+      // 调试脚本
+      const status = document.getElementById('status');
+      const output = document.getElementById('output');
+
+      async function debug() {
+        const results = [];
+
+        // 1. 测试API健康检查
+        try {
+          const healthResp = await fetch(
+            'https://96320933.ai-translator-97n.pages.dev/api/health'
+          );
+          const healthData = await healthResp.json();
+          results.push({
+            test: 'API Health Check',
+            status: 'SUCCESS',
+            data: healthData
+          });
+        } catch (e) {
+          results.push({
+            test: 'API Health Check',
+            status: 'FAILED',
+            error: e.message
+          });
+        }
+
+        // 2. 测试JS文件加载
+        try {
+          const jsResp = await fetch(
+            'https://96320933.ai-translator-97n.pages.dev/static/js/main.js'
+          );
+          const jsText = await jsResp.text();
+          results.push({
+            test: 'JS File Load',
+            status: 'SUCCESS',
+            size: jsText.length + ' bytes'
+          });
+        } catch (e) {
+          results.push({
+            test: 'JS File Load',
+            status: 'FAILED',
+            error: e.message
+          });
+        }
+
+        // 3. 测试翻译API
+        try {
+          const translateResp = await fetch(
+            'https://96320933.ai-translator-97n.pages.dev/api/translate',
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                text: 'Hello World',
+                target_language: 'zh',
+                source_language: 'en'
+              })
+            }
+          );
+          const translateData = await translateResp.json();
+          results.push({
+            test: 'Translation API',
+            status: translateData.success ? 'SUCCESS' : 'FAILED',
+            data: translateData
+          });
+        } catch (e) {
+          results.push({
+            test: 'Translation API',
+            status: 'FAILED',
+            error: e.message
+          });
+        }
+
+        // 4. 检查控制台错误
+        if (window.console && window.console.error) {
+          const originalError = console.error;
+          let errors = [];
+          console.error = function () {
+            errors.push(Array.from(arguments).join(' '));
+            originalError.apply(console, arguments);
+          };
+        }
+
+        output.textContent = JSON.stringify(results, null, 2);
+        status.textContent = '调试完成！请查看结果：';
+      }
+
+      // 自动运行调试
+      debug();
+    </script>
+  </body>
+</html>
